@@ -1,29 +1,77 @@
 <div.container>
-  <header>
-    <img.logo src="./logo.svg" alt="Marko"/>
+  <header.banner>
+    <countdown targetDate="2024-12-31T23:59:59Z"/>
+    <h2>Allstate Extended Vehicle Care</h2>
+    <h1>Protection that extends beyondyour warranty</h1>
   </header>
-  <main>
-    <p>Edit <code>./src/routes/_index/+page.marko</code> and save to reload.</p>
-    <a href="https://markojs.com/docs/getting-started">
-      Learn Marko
-    </a>
+  <main.page>
+    <aside.sidebar>
+      <careList/>
+    </aside>
+    <section.content>
+      <h1>Get a Free Quote</h1>
+      <form>
+        <p>First Name</p>
+        <input />
+        <p>Email Address</p>
+        <input />
+        <h1>Please Check All Boxes To Qualify</h1>
+        <div>
+          <input type="checkbox" checked />
+          <label>lly vehide's model year ks 2017 cr nowgl</label>
+        </div>
+        <div>
+          <input type="checkbox" />
+          <label>ly vehidle has loss than 80,000 mikes</label>
+        </div>
+        <div>
+          <input type="checkbox" />
+          <label>i do not lhve in eithar Calforia or wassachusets</label>
+        </div>
+        <div>
+          <input type="button" value="Learn More"/>
+        </div>
+      </form>
+    </section>
   </main>
 </div>
-<mouse-mask/>
 
 style {
   .container {
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     font-size: clamp(1em, 2vw, 2em); 
-    padding: 1em;
-    box-sizing: border-box;
-    height:100%;
-    width:100%;
+    box-sizing: content-box;
+    height: 100%;
+    width: 100%;
   }
-  img.logo {
-    width:12em;
+  header.banner {
+    color: #ffffff;
+    background-color: #0f1a3e;
+    margin-bottom: 20px;
+  }
+  main.page {
+    bbackground-color: #00ff00;
+  }
+  aside.sidebar {
+  }
+  section.content {
+    color: #ffffff;
+    background-color: #0f1a3e;
+    padding: 20px;
+  }
+  input {
+    border-radius: 8px;
+  }
+
+  @media screen and (min-width: 600px) {
+    aside.sidebar {
+      width: 45%;
+      float: left;
+    }
+    section.content {
+      width: 45%;
+      float: right;
+    }
   }
 }

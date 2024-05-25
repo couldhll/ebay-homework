@@ -1,0 +1,40 @@
+<div.countdown>
+  <span>${state.timeRemaining}</span>
+</div>
+
+class {
+  onCreate(input) {
+    this.state = { timeRemaining: '' };
+    this.targetDate = new Date(input.targetDate);
+  }
+  onMount() {
+    this.updateCountdown();
+    this.interval = setInterval(() => this.updateCountdown(), 1000);
+  }
+  onDestroy() {
+    clearInterval(this.interval);
+  }
+  updateCountdown() {
+    const now = new Date();
+    const timeRemaining = this.targetDate - now;
+
+    if (timeRemaining <= 0) {
+      this.state.timeRemaining = "Time's up!";
+      clearInterval(this.interval);
+      return;
+    }
+
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    this.state.timeRemaining = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+}
+
+style {
+  .countdown {
+
+  }
+}
